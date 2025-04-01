@@ -6,10 +6,10 @@ FROM node:${NODE_VERSION}-alpine
 WORKDIR /app
  
 # Copy package.json and package-lock.json
-#COPY package*.json ./
+COPY package*.json ./
  
 # Install dependencies
-#RUN npm install
+RUN npm install
  
 # Copy the rest of your application files
 COPY . .
@@ -17,6 +17,7 @@ COPY . .
 # Expose the port your app runs on
 # This probably will end up in some kind of networks file?
 EXPOSE 3000
+EXPOSE 8081
  
 # Define the command to run your app
 ENTRYPOINT ["tail", "-f", "/dev/null"]
